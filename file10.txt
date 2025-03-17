@@ -1,0 +1,26 @@
+pipeline {
+    agent any  // Runs on any available Jenkins agent
+
+    stages {
+        stage('Get Server Details') {
+            steps {
+                sh '''
+                    #!/bin/bash
+
+                    # Get server details
+                    name=$(hostname)
+                    memory=$(free -m | awk '/Mem:/ {print $2 " MB"}')
+                    cpu=$(lscpu | grep "Model name" | awk -F: '{print $2}' | sed 's/^ *//')
+                    disk=$(df -h / | awk 'NR==2 {print $2}')
+
+                    # Print server details
+                    echo "Server details:"
+                    echo "Name: $name"
+                    echo "Memory: $memory"
+                    echo "CPU: $cpu"
+                    echo "Disk: $disk"
+                '''
+            }
+        }
+    }
+}
