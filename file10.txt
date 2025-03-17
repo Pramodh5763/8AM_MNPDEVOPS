@@ -19,6 +19,8 @@ pipeline {
                     echo "Memory: $memory"
                     echo "CPU: $cpu"
                     echo "Disk: $disk"
+                    echo "Time 13:24 PM"
+
                 '''
             }
         }
