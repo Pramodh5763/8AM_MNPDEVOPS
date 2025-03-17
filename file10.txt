@@ -21,6 +21,8 @@ pipeline {
                     echo "Disk: $disk"
                     echo "Time 13:24 PM"
                     echo "Time 14:30 PM"
+                    echo "Time 14:36 PM"
+
 
 
                 '''
